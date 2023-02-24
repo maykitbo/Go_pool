@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Blog</title>
+</head>
+<body>
+	<img id="logo" src="{{.LogoPath}}" alt="Logo" width="300" height="300">
+	<h1>My Articles</h1>
+	<ul>
+		{{range .Articles}}
+		<li>
+			<h2><a href="/article/{{.Id}}">{{.Title}}</a></h2>
+			<p>{{.Summary}}</p>
+		</li>
+		{{end}}
+	</ul>
+	<a href="{{.PreviousURL}}">Previous</a>
+	<a href="{{.NextURL}}">Next</a>
+	<script>
+		const logo = document.getElementById("logo");
+		setInterval(function() {
+			logo.src = "/logo?" + Date.now();
+		}, 1000);
+	</script>
+</body>
+</html>

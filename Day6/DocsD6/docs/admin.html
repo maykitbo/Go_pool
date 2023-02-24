@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Panel</title>
+</head>
+<body>
+	<h1>Add a new article</h1>
+	<form action="/admin" method="post">
+		<label for="title">Title:</label>
+		<input type="text" id="title" name="title">
+		<br><br>
+
+		<label for="preview">Summary:</label>
+		<input type="text" id="summary" name="summary">
+		<br><br>
+
+		<label for="Body">Body:</label>
+		<textarea id="Body" name="Body"></textarea>
+		<br><br>
+		<input type="button" value="Generate" onclick="generate()">
+		<input type="submit" value="Submit">
+	</form>
+	
+	<script>
+		function generate() {
+		  document.getElementById("Body").value = "{{ .RandomString }}";
+		}
+	  </script>	  
+</body>
+</html>
